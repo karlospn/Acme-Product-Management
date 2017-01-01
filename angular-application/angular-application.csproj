@@ -96,6 +96,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\products\product-list.component.css" />
     <Content Include="app\products\product-list.template.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -137,7 +138,11 @@
     <TypeScriptCompile Include="app\app.module.ts" />
     <TypeScriptCompile Include="app\home\welcome.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
+    <TypeScriptCompile Include="app\pipes\product-filter.ts" />
+    <TypeScriptCompile Include="app\pipes\star-filter.ts" />
     <TypeScriptCompile Include="app\products\product-list.component.ts" />
+    <TypeScriptCompile Include="app\products\product.ts" />
+    <TypeScriptCompile Include="app\shared\star.component.ts" />
     <TypeScriptCompile Include="typings\globals\core-js\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\node\index.d.ts" />
     <TypeScriptCompile Include="typings\index.d.ts" />

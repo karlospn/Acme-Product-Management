@@ -1,19 +1,21 @@
-﻿import { Component } from "@angular/core";
+﻿import { Component, OnInit } from "@angular/core";
+import { IProduct } from "./product";
 
 @Component({
     selector: "pm-products",
-    templateUrl: "app/products/product-list.template.html"
+    templateUrl: "app/products/product-list.template.html",
+    styleUrls: ["app/products/product-list.component.css"]
 })
 
-export class ProductListComponent {
-
+export class ProductListComponent implements OnInit {
+    
     private tableTitle: string = "Product List";
     private imageWidth: number = 50;
     private imageMargin: number = 2;
     private showImage: boolean = false;
     private listFilter : string = "Cart";
 
-    private products: any[] = [
+    private products: IProduct[] = [
         {
             "productId": 1,
             "productName": "Leaf Rake",
@@ -66,7 +68,7 @@ export class ProductListComponent {
         }
     ];
 
-    public toggleImage(): void {
+    private toggleImage(): void {
         if (this.showImage) {
             this.showImage = false;
         } else {
@@ -74,5 +76,13 @@ export class ProductListComponent {
         }
      
     }
-    
+
+    public ngOnInit(): void {
+        console.log("On Init event");
+    }
+
+    private onRatingClicked(message: number) : void {
+        this.tableTitle = "You clicked in the "+ message+" rating";
+    }
+        
 }
