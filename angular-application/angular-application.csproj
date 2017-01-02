@@ -142,6 +142,7 @@
     <TypeScriptCompile Include="app\pipes\star-filter.ts" />
     <TypeScriptCompile Include="app\products\product-list.component.ts" />
     <TypeScriptCompile Include="app\products\product.ts" />
+    <TypeScriptCompile Include="app\services\products.service.ts" />
     <TypeScriptCompile Include="app\shared\star.component.ts" />
     <TypeScriptCompile Include="typings\globals\core-js\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\node\index.d.ts" />

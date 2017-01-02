@@ -240,3 +240,13 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/angular-application/app/pipes/star-filter.js.map
+/angular-application/app/pipes/star-filter.js
+/angular-application/app/pipes/product-filter.js.map
+/angular-application/app/pipes/product-filter.js
+/angular-application/app/products/product.js.map
+/angular-application/app/products/product.js
+/angular-application/app/products/product-list.component.js.map
+/angular-application/app/products/product-list.component.js
+/angular-application/app/shared/star.component.js.map
+/angular-application/app/shared/star.component.js

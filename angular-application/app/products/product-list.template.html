@@ -1,4 +1,5 @@
 ﻿<div class="panel panel-primary">
+    <div class="alert alert-danger"  *ngIf="errorMessage">{{errorMessage}}</div>
     <div class="panel-heading">
         {{tableTitle}}
     </div>
@@ -6,9 +7,9 @@
         <div class="row">
             <div class="col-md-2">Filter by:</div>
             <div class="col-md-4">
-                <input 
+                <input
                     type="text"
-                    [(ngModel)] = "listFilter"/>
+                    [(ngModel)]="listFilter"/>
             </div>
         </div>
         <div class="row">
@@ -20,39 +21,39 @@
     <div class="table-responsive">
         <table class="table" *ngIf="products && products.length">
             <thead>
-                <tr>
-                    <th>
-                        <button class="btn btn-primary" (click)="toggleImage()">
-                            {{showImage ? "Hide" : "Show"}} image
-                        </button>
-                    </th>
-                    <th>Product</th>
-                    <th>Code</th>
-                    <th>Available</th>
-                    <th>Price</th>
-                    <th>5 Star Rating</th>
-                </tr>
+            <tr>
+                <th>
+                    <button class="btn btn-primary" (click)="toggleImage()">
+                        {{showImage ? "Hide" : "Show"}} image
+                    </button>
+                </th>
+                <th>Product</th>
+                <th>Code</th>
+                <th>Available</th>
+                <th>Price</th>
+                <th>5 Star Rating</th>
+            </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let product of products | productFilter: listFilter">
-                    <td>
-                        <img 
-                            *ngIf="showImage"
-                            src="{{product.imageUrl}}"
-                            title="{{product.productName}}"
-                            [style.width.px]="imageWidth"
-                            [style.margin.px]="imageMargin"/>
-                    </td>
-                    <td> {{product.productName}}</td>
-                    <td> {{product.productCode}}</td>
-                    <td> {{product.releaseDate | date}}</td>
-                    <td> {{product.price | currency : 'USD': 1}}</td>
-                    <td>
-                        <pm-stars [rating]="product.starRating"
-                                  (ratingClicked)="onRatingClicked($event)">                          
-                        </pm-stars>
-                    </td>
-                </tr>
+            <tr *ngFor="let product of products | productFilter: listFilter">
+                <td>
+                    <img
+                        *ngIf="showImage"
+                        src="{{product.imageUrl}}"
+                        title="{{product.productName}}"
+                        [style.width.px]="imageWidth"
+                        [style.margin.px]="imageMargin"/>
+                </td>
+                <td> {{product.productName}}</td>
+                <td> {{product.productCode}}</td>
+                <td> {{product.releaseDate | date}}</td>
+                <td> {{product.price | currency : 'USD': 1}}</td>
+                <td>
+                    <pm-stars [rating]="product.starRating"
+                              (ratingClicked)="onRatingClicked($event)">
+                    </pm-stars>
+                </td>
+            </tr>
             </tbody>
         </table>
     </div>
