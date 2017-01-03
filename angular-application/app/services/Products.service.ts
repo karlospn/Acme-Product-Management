@@ -17,10 +17,11 @@ export class ProductService
 
     public getProducts(): Observable<IProduct[]> {
 
-        return this.http.get("api/products/products.json")
+        var response =  this.http.get("api/products/products.json")
             .map((response: Response) => <IProduct[]>response.json())
            .do(data => console.log(JSON.stringify(data)))
-           .catch(this.handleError);
+            .catch(this.handleError);
+        return response;
     }
 
 
@@ -40,4 +41,10 @@ export class ProductService
     private handleErrorPromise(reason: any): Promise<any> {
         return Promise.reject(reason.message);
     }
+
+    getProduct(id: number): Observable<IProduct> {
+        return this.getProducts()
+            .map((products: IProduct[]) => products.find(p => p.productId === id));
+    }
+
 }

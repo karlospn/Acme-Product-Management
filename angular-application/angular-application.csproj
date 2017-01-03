@@ -98,6 +98,7 @@
   <ItemGroup>
     <Content Include="app\products\product-list.component.css" />
     <Content Include="app\products\product-list.template.html" />
+    <Content Include="app\sorry\sorry-page.template.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -110,6 +111,7 @@
     <Content Include="typings.json" />
     <Content Include="typings\globals\core-js\typings.json" />
     <Content Include="typings\globals\node\typings.json" />
+    <Content Include="app\products\product.details.template.html" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -136,14 +138,17 @@
   <ItemGroup>
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
+    <TypeScriptCompile Include="app\guards\product-details.guard.service.ts" />
     <TypeScriptCompile Include="app\home\welcome.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\pipes\product-filter.ts" />
     <TypeScriptCompile Include="app\pipes\star-filter.ts" />
     <TypeScriptCompile Include="app\products\product-list.component.ts" />
+    <TypeScriptCompile Include="app\products\product.details.component.ts" />
     <TypeScriptCompile Include="app\products\product.ts" />
     <TypeScriptCompile Include="app\services\products.service.ts" />
     <TypeScriptCompile Include="app\shared\star.component.ts" />
+    <TypeScriptCompile Include="app\sorry\sorry-page.component.ts" />
     <TypeScriptCompile Include="typings\globals\core-js\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\node\index.d.ts" />
     <TypeScriptCompile Include="typings\index.d.ts" />
