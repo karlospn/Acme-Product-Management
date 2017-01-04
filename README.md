@@ -1,5 +1,7 @@
 # Acme-Product-Management
 
-Web application build using:
+Front-end Web application using:
 
 - Angular 2
+
+It's only the front-end part.
