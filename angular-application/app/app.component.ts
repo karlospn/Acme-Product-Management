@@ -1,6 +1,5 @@
 import { Component } from "@angular/core";
 import { RouterModule } from '@angular/router';
-import { ProductService } from "./services/products.service";
 
 @Component({
     selector: "pm-app",
@@ -20,7 +19,7 @@ import { ProductService } from "./services/products.service";
         <router-outlet></router-outlet>
     </div>
     `,
-    providers: [ProductService, RouterModule]
+    providers: [RouterModule]
 })
 
 export class AppComponent {
