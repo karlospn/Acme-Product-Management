@@ -17,7 +17,7 @@ export class ProductService
 
     public getProducts(): Observable<IProduct[]> {
 
-        var response =  this.http.get("api/products/products.json")
+        var response = this.http.get("http://localhost:55696/api/products")
             .map((response: Response) => <IProduct[]>response.json())
            .do(data => console.log(JSON.stringify(data)))
             .catch(this.handleError);
@@ -33,7 +33,7 @@ export class ProductService
 
     public getProductsWithPromise(): Promise<IProduct[]> {
 
-        return this.http.get("api/products/products.json").toPromise()
+        return this.http.get("http://localhost:55696/api/products").toPromise()
             .then((response: Response) => <IProduct[]>response.json())
             .catch(this.handleErrorPromise);
     }
@@ -42,9 +42,9 @@ export class ProductService
         return Promise.reject(reason.message);
     }
 
-    getProduct(id: number): Observable<IProduct> {
+    getProduct(id: string): Observable<IProduct> {
         return this.getProducts()
-            .map((products: IProduct[]) => products.find(p => p.productId === id));
+            .map((products: IProduct[]) => products.find(p => p.id === id));
     }
 
 }

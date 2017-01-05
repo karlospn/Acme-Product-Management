@@ -9,8 +9,8 @@ export class ProductDetailsGuard implements CanActivate {
 
     public canActivate(route: ActivatedRouteSnapshot): boolean {
 
-        let id = +route.url[1].path;
-        if (isNaN(id) || id < 1) {
+        let id = route.url[1].path;
+        if (id === undefined || id === null) {
             this.router.navigate(['/error']);
             return false;
         }
