@@ -8,10 +8,12 @@ import { ProductFilterPipe } from "../pipes/product-filter";
 import { ProductDetailsComponent } from "./product.details.component";
 import { ProductDetailsGuard } from "../guards/product-details.guard.service";
 import { ProductService } from "../services/products.service";
+import { ProductInsertComponent } from "./product-add.component";
 
 var routes = [
     { path: 'products', component: ProductListComponent },
-    { path: 'products/:id', canActivate: [ProductDetailsGuard], component: ProductDetailsComponent }
+    { path: 'products/:id', canActivate: [ProductDetailsGuard], component: ProductDetailsComponent },
+    { path: 'insert-products', component: ProductInsertComponent }
 ];
 
 @NgModule({
@@ -23,6 +25,7 @@ var routes = [
         ProductListComponent,
         ProductFilterPipe,
         ProductDetailsComponent,
+        ProductInsertComponent
     ],
     providers: [ProductDetailsGuard, ProductService]
 })
