@@ -1,10 +1,11 @@
 ﻿import { Injectable } from "@angular/core";
-import { Http, Response } from "@angular/http";
+import { Http, Response, Headers, RequestOptions } from "@angular/http";
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/observable/throw';
 
 import { IProduct } from "../products/product";
 
@@ -24,13 +25,35 @@ export class ProductService
         return response;
     }
 
+    public getProduct(id: string): Observable<IProduct> {
+        return this.getProducts()
+            .map((products: IProduct[]) => products.find(p => p.id === id));
+    }
 
-    private handleError(error: Response) : Observable<IProduct[]> {
-        console.log("Error accesing data" + JSON.stringify(error));
+    public postProduct(product: IProduct): Observable<IProduct[]> {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        var response = this.http.post("http://localhost:55696/api/products", JSON.stringify(product), options)
+            .map(this.extractData)
+            .catch(this.handleError);
+
+        return response;
+    }
+
+    private handleError(error: Response): Observable<IProduct[]> {
+        console.log("Error accesing / retrieving data" + JSON.stringify(error));
         return Observable.throw(error || 'server error');
     }
 
 
+    private extractData(res: Response): void {
+        console.log("Response : "+ res);
+        let body = res.json();
+        return body || {};
+    }
+
+    ///Same method as getProducts using Promises instead of Observables
     public getProductsWithPromise(): Promise<IProduct[]> {
 
         return this.http.get("http://localhost:55696/api/products").toPromise()
@@ -42,9 +65,6 @@ export class ProductService
         return Promise.reject(reason.message);
     }
 
-    getProduct(id: string): Observable<IProduct> {
-        return this.getProducts()
-            .map((products: IProduct[]) => products.find(p => p.id === id));
-    }
+
 
 }

@@ -1,9 +1,11 @@
 ﻿<div class="panel panel-primary">
+    <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</div>
+    <div class="alert alert-success" *ngIf="successMessage">{{successMessage}}</div>
     <div class="panel-heading">
         Add a product
     </div>
     <div class="panel-body">
-        <form #form="ngForm" novalidate>
+        <form (submit)="onSubmit(); form.reset();" #form="ngForm" novalidate>
             <div class="form-group" [class.has-error]="productName.invalid && productName.dirty">
                 <label class="control-label" for="productName">Product Name</label>
                 <input type="text" class="form-control" id="productName" name="productName" placeholder="Product Name" [(ngModel)]="product.productName" required #productName="ngModel"/>
@@ -13,6 +15,12 @@
                 <label for="productCode" class="control-label">Product Code</label>
                 <input type="text" class="form-control" id="productCode" name="productCode" placeholder="Product Code" [(ngModel)]="product.productCode" required #productCode="ngModel"/>
                 <div *ngIf="productCode.invalid && productCode.dirty" class="alert alert-danger">Product Code is required.</div>
+            </div>
+            <div class="form-group">
+                <label for="releaseDate" class="control-label">Release Date</label>
+                <my-date-picker
+                    [options]="myDatePickerOptions"
+                    (dateChanged)="onDateChanged($event)"></my-date-picker>
             </div>
             <div class="form-group" [class.has-error]="productName.invalid && productName.dirty">
                 <label for="price" class="control-label">Price</label>
@@ -24,15 +32,21 @@
                 <textarea class="form-control" id="description" name="description" placeholder="Description" rows="3" [(ngModel)]="product.description" required #description="ngModel"></textarea>
                 <div *ngIf="description.invalid && description.dirty" class="alert alert-danger">Description is required.</div>
             </div>
+            <div class="form-group" [class.has-error]="starRating.invalid && starRating.dirty">
+                <label for="starRating" class="control-label">Rating</label>
+                <input type="text" class="form-control" pattern="[0-5]{1}" id="starRating" name="starRating" placeholder="Rating" [(ngModel)]="product.starRating" required #starRating="ngModel"/>
+                <div *ngIf="starRating.invalid && starRating.dirty" class="alert alert-danger">Rating is required and must be a number between 0 and 5.</div>
+            </div>
             <div class="form-group" [class.has-error]="productName.invalid && productName.dirty">
                 <label for="imageUrl" class="control-label">Image URL</label>
-                <input type="text" class="form-control" pattern="https?://.+"  id="imageUrl" name="imageUrl" placeholder="Image URL" [(ngModel)]="product.imageUrl" required #imageUrl="ngModel"/>
+                <input type="text" class="form-control" pattern="https?://.+" id="imageUrl" name="imageUrl" placeholder="Image URL" [(ngModel)]="product.imageUrl" required #imageUrl="ngModel"/>
                 <div *ngIf="imageUrl.invalid && imageUrl.dirty" class="alert alert-danger">Image URL is required and must be a valid URL.</div>
 
             </div>
             <button class="btn btn-primary" [disabled]="form.invalid" type="submit">Register product</button>
-            <button class="btn btn-primary" [disabled]="form.pristine" type="button">Reset</button>
+            <button class="btn btn-primary" [disabled]="form.pristine" type="button" (click)="form.reset()">Reset</button>
 
         </form>
     </div>
+
 </div>

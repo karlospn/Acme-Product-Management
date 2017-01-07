@@ -2,6 +2,7 @@
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from "../shared/shared.module";
+import { MyDatePickerModule } from 'mydatepicker/dist/my-date-picker.module';
 
 import { ProductListComponent } from './product-list.component';
 import { ProductFilterPipe } from "../pipes/product-filter";
@@ -19,6 +20,7 @@ var routes = [
 @NgModule({
     imports: [
         RouterModule.forChild(routes),
+        MyDatePickerModule,
         SharedModule
     ],
     declarations: [   
