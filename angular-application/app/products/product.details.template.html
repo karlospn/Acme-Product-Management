@@ -31,7 +31,7 @@
                     <div class='col-md-3'>5 Star Rating:</div>
                     <div class='col-md-6'>
                         <pm-stars [rating]='product.starRating'
-                                 (ratingClicked)='onRatingClicked($event)'>
+                                  (ratingClicked)='onRatingClicked($event)'>
                         </pm-stars>
                     </div>
                 </div>
@@ -52,4 +52,21 @@
             <i class='glyphicon glyphicon-chevron-left'></i> Back
         </a>
     </div>
+    <div class='panel-footer'>
+        <a class='btn btn-default' (click)='modal.show()' style='width: 80px'>
+            <i class='glyphicon glyphicon-remove'></i> Delete
+        </a>
+    </div>
+    <app-modal>
+        <div class="app-modal-header">
+            Delete confirmation
+        </div>
+        <div class="app-modal-body">
+            Are you sure your want to delete the product : {{product.productName}} with Code: {{product.productCode}}?
+        </div>
+        <div class="app-modal-footer">
+            <button type="button" class="btn btn-default" (click)="modal.hide()">Back</button>
+            <button type="button" class="btn btn-primary" (click)="deleteProduct(); modal.hide()">Delete</button>
+        </div>
+    </app-modal>
 </div>

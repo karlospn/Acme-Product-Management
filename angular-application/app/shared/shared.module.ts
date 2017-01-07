@@ -4,8 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { StarFilterPipe } from "../pipes/star-filter";
 import { StarComponent } from "../shared/star.component";
-
-
+import { ModalComponent } from "./modal.component";
 
 @NgModule({
     imports: [
@@ -13,13 +12,15 @@ import { StarComponent } from "../shared/star.component";
     ],
     declarations: [ 
         StarFilterPipe,
-        StarComponent
+        StarComponent,
+        ModalComponent
     ],
     exports: [
         FormsModule,
         CommonModule,
         StarComponent,
-        StarFilterPipe
+        StarFilterPipe,
+        ModalComponent
     ]
 })
 

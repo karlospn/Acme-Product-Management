@@ -151,6 +151,7 @@
     <TypeScriptCompile Include="app\products\product.ts" />
     <TypeScriptCompile Include="app\products\products.module.ts" />
     <TypeScriptCompile Include="app\services\products.service.ts" />
+    <TypeScriptCompile Include="app\shared\modal.component.ts" />
     <TypeScriptCompile Include="app\shared\shared.module.ts" />
     <TypeScriptCompile Include="app\shared\star.component.ts" />
     <TypeScriptCompile Include="app\sorry\sorry-page.component.ts" />
