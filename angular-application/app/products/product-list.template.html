@@ -35,25 +35,24 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let product of products | productFilter: listFilter">
-                <td>
-                    <img
-                        *ngIf="showImage"
-                        src="{{product.imageUrl}}"
-                        title="{{product.productName}}"
-                        [style.width.px]="imageWidth"
-                        [style.margin.px]="imageMargin"/>
-                </td>
-                <td><a [routerLink]="['/products', product.id]">{{product.productName}}</a></td>
-                <td> {{product.productCode}}</td>
-                <td> {{product.releaseDate}}</td>
-                <td> {{product.price | currency : 'USD': 1}}</td>
-                <td>
-                    <pm-stars [rating]="product.starRating"
-                              (ratingClicked)="onRatingClicked($event)">
-                    </pm-stars>
-                </td>
-            </tr>
+                <tr *ngFor="let product of products | productFilter: listFilter">
+                    <td>
+                        <img *ngIf="showImage"
+                             src="{{product.imageUrl}}"
+                             title="{{product.productName}}"
+                             [style.width.px]="imageWidth"
+                             [style.margin.px]="imageMargin" />
+                    </td>
+                    <td><a [routerLink]="['/products', product.id]">{{product.productName}}</a></td>
+                    <td> {{product.productCode}}</td>
+                    <td> {{product.releaseDate}}</td>
+                    <td> {{product.price | currency : 'USD': 1}}</td>
+                    <td>
+                        <pm-stars [rating]="product.starRating"
+                                  (ratingClicked)="onRatingClicked($event)">
+                        </pm-stars>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>

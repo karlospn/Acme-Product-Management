@@ -53,6 +53,9 @@ export class ProductService
         return body || {};
     }
 
+
+
+
     ///Same method as getProducts using Promises instead of Observables
     public getProductsWithPromise(): Promise<IProduct[]> {
 

@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app-component.html" />
+    <Content Include="app\products\product-edit.template.html" />
     <Content Include="app\products\product-add.template.html" />
     <Content Include="app\products\product-list.component.css" />
     <Content Include="app\products\product-list.template.html" />
@@ -145,6 +146,7 @@
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\pipes\product-filter.ts" />
     <TypeScriptCompile Include="app\pipes\star-filter.ts" />
+    <TypeScriptCompile Include="app\products\product-edit.component.ts" />
     <TypeScriptCompile Include="app\products\product-add.component.ts" />
     <TypeScriptCompile Include="app\products\product-list.component.ts" />
     <TypeScriptCompile Include="app\products\product.details.component.ts" />

@@ -43,7 +43,7 @@ export class ProductDetailsComponent implements OnInit {
     }
 
     private deleteProduct(): void {
-        
+        //TODO: DELETE USING HTTP
     }
 
     
